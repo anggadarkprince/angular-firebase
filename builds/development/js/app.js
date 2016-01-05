@@ -1,9 +1,9 @@
 /**
  * Created by Angga on 1/5/2016.
  */
-var app = angular.module('myApp', ['ngRoute', 'appControllers']);
+var app = angular.module('myApp', ['ngRoute', 'firebase', 'appControllers']);
 
-var appControllers = angular.module('appControllers', []);
+var appControllers = angular.module('appControllers', ['firebase']);
 
 app.config(['$routeProvider', function($routeProvider){
     $routeProvider
@@ -16,7 +16,8 @@ app.config(['$routeProvider', function($routeProvider){
             controller: 'RegistrationController'
         })
         .when('/meetings', {
-            templateUrl: 'views/meetings.html'
+            templateUrl: 'views/meetings.html',
+            controller: 'MeetingsController'
         })
         .otherwise({
             redirectTo: '/login'
