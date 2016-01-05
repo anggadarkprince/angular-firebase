@@ -3,23 +3,16 @@
  */
 app.controller('RegistrationController', function($scope, $location, Authentication){
     var ref = new Firebase('https://attendence-angular.firebaseio.com/meetings');
+    var authData = ref.getAuth();
+    if (authData) {
+        $location.path('/meetings');
+    }
 
     $scope.login = function(){
         Authentication.login($scope);
     }
 
     $scope.register = function(){
-        ref.createUser({
-            email    : $scope.user.email,
-            password : $scope.user.password
-        }, function(error, userData) {
-            if (error) {
-                $scope.message = error.toString();
-                console.log("Error creating user:", error);
-            } else {
-                console.log("Successfully created user account with uid:", userData.uid);
-                $location.path('/login');
-            }
-        });
+        Authentication.register($scope);
     }
 });
