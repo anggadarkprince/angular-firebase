@@ -1,7 +1,8 @@
 /**
  * Created by Angga on 1/5/2016.
  */
-var app = angular.module('myApp', ['ngRoute', 'firebase', 'appControllers']);
+var app = angular.module('myApp', ['ngRoute', 'firebase', 'appControllers'])
+    .constant('FIREBASE_URL', 'https://attendence-angular.firebaseio.com/meetings');
 
 var appControllers = angular.module('appControllers', ['firebase']);
 
