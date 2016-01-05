@@ -17,8 +17,7 @@ gulp.task('css', function() {
 gulp.task('watch', function() {
   gulp.watch('builds/development/js/**/*', ['js']);
   gulp.watch('builds/development/css/*.css', ['css']);
-  gulp.watch(['builds/development/*.html',
-    'builds/development/views/*.html'], ['html']);
+  gulp.watch(['builds/development/*.html', 'builds/development/views/*.html'], ['html']);
 });
 
 gulp.task('webserver', function() {
